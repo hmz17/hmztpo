@@ -35,6 +35,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
+    'tpo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,10 +59,24 @@ TEMPLATES = (
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                "django.core.context_processors.request",
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
+                # Required by allauth template tags
+                "django.core.context_processors.request",
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
             'debug': DEBUG,
         },
@@ -143,3 +159,21 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '624115086085-tecos17u8832o983tujla6bn1hiduj01.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'l4VZkDJ9ZN-qAjqnreDyjbrn'
 SOCIAL_AUTH_GOOGLE_PLUS_KEY = '624115086085-tecos17u8832o983tujla6bn1hiduj01.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_PLUS_SECRET = 'l4VZkDJ9ZN-qAjqnreDyjbrn'
+
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+# SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['first_name', 'last_name', 'email',
+#                                         'username']
+
+try:
+    from example.local_settings import *
+except ImportError:
+    pass
+
+AUTHENTICATION_BACKENDS = (
+
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GooglePlusAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
