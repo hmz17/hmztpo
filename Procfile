@@ -1,0 +1,1 @@
+web: gunicorn hmztpo.wsgi --log-file -
