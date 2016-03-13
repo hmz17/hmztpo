@@ -2,7 +2,6 @@ from django import forms
 from django.forms import ModelForm, Textarea, DateInput
 from functools import partial
 from .models import UserProfile
-from datetimewidget.widgets import DateTimeWidget
 
 
 #DateInput = partial(forms.DateInput, {'class': 'datepicker'})
