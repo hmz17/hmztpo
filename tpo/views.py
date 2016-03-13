@@ -38,10 +38,12 @@ def logout(request):
 @login_required(login_url='/')
 def editprofile(request):
     if request.method == "POST":
-        form = EditProfileForm(request.POST)
-        post = form.save()
-        post.save()
-        return redirect(home())
+        user_profile = request.user.profile
+        form = EditProfileForm(request.POST,instance=user_profile)
+        if form.is_valid():
+            post = form.save()
+            post.save()
+            return redirect(home)
 
     else:
         user_profile = request.user.profile

@@ -13,5 +13,5 @@ urlpatterns = [
     url(r'^logout$', views.logout),
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
-    url(r'^editprofile$', views.editprofile),
+    url(r'^editprofile$', views.editprofile,name='editprofile'),
 ]

@@ -21,7 +21,10 @@
     
     
     
-      <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a><br>
+      <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a><br><br><br>
+
+      <a href="{% url 'editprofile' %}">My Profile</a><br><br><br>
+
     
     {% else %}
     
