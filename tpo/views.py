@@ -15,6 +15,11 @@ from django.contrib.auth import logout as auth_logout, login
 from social.backends.oauth import BaseOAuth1, BaseOAuth2
 from social.backends.google import GooglePlusAuth
 from social.backends.utils import load_backends
+from .forms import EditProfileForm
+from .models import UserProfile
+from django.contrib.auth.models import User
+
+
 
 
 # Create your views here.
@@ -29,3 +34,16 @@ def logout(request):
     """Logs out user"""
     auth_logout(request)
     return redirect('/')
+
+@login_required(login_url='/')
+def editprofile(request):
+    if request.method == "POST":
+        form = EditProfileForm(request.POST)
+        post = form.save()
+        post.save()
+        return redirect(home())
+
+    else:
+        user_profile = request.user.profile
+        form = EditProfileForm(instance=user_profile)
+    return render(request, 'editprofile.html', {'form': form})

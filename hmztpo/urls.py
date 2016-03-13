@@ -11,5 +11,7 @@ urlpatterns = [
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^$', views.home),
     url(r'^logout$', views.logout),
+
     url(r'', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^editprofile$', views.editprofile),
 ]
