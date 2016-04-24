@@ -14,4 +14,6 @@ urlpatterns = [
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'^editprofile$', views.editprofile,name='editprofile'),
+    url(r'^resume$', views.resume,name='resume'),
+    url(r'^pdf$', views.pdf_view,name='pdf'),
 ]

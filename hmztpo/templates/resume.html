@@ -2,10 +2,11 @@
 
 {% block main %}
 
-<h1 align="center">My Profile</h1>
+<h1 align="center">My Resume</h1>
 <form style="padding: 35px;" role="form" action="" method="post" data-ajax="false" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
+    {{ form.errors }}
     <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Save</button>
 </form>
 {% endblock %}

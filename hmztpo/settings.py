@@ -177,3 +177,9 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.google.GooglePlusAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+#FILE_UPLOAD_HANDLERS = [
+    #"django.core.files.uploadhandler.MemoryFileUploadHandler",
+    #"django.core.files.uploadhandler.TemporaryFileUploadHandler",]
+
+

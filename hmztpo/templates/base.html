@@ -43,9 +43,10 @@
           <!-- Navigation. We hide it in small screens. -->
           <nav class="mdl-navigation mdl-layout--large-screen-only">
             <a class="mdl-navigation__link" href="{% url 'editprofile' %}">Profile</a>
-            <a class="mdl-navigation__link" href="">Resume</a>
+            <a class="mdl-navigation__link" href="{% url 'resume' %}">Resume</a>
             <a class="mdl-navigation__link" href="">Marks</a>
             <a class="mdl-navigation__link" href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+            <a class="mdl-navigation__link" href="{% url 'admin:index' %}">Admin</a>
           </nav>
         </div>
       </header>
